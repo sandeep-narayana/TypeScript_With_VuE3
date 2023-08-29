@@ -2,7 +2,7 @@
   <div>
     <h1 class="title">Job Listings</h1>
     <div class="job_list">
-      Ordered by {{ this.order }}
+      Ordered by {{ order }}
       <transition-group name="list" tag="ul">
         <li v-for="job in orderedJobs" :key="job.id" class="job_item">
           <h2 class="job_title">{{ job.title }} in {{ job.location }}</h2>
