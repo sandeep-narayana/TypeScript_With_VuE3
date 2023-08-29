@@ -3,21 +3,22 @@
   <div class="app">
     <p>{{ this.name }} {{ age }}</p>
     <button v-on:click="changeName('zelda')">Change Name</button>
-     <button v-on:click="changeAge(55)">Change Name</button>
+    <button v-on:click="changeAge(55)">Change Name</button>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, reactive, toRefs } from "vue";
 
 export default defineComponent({
   name: "App",
   components: {},
-  data() {
-    return {
-      name: "Sandeep",
+  setup() {
+    const state = reactive({
+      name: "",
       age: 25 as number | string,
-    };
+    });
+    return { ...toRefs(state) };
   },
   methods: {
     changeName(name: string) {
