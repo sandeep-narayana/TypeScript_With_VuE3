@@ -1,30 +1,21 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
   <div class="app">
-    <p>{{ this.name }} {{ age }}</p>
-    <button v-on:click="changeName('zelda')">Change Name</button>
-    <button v-on:click="changeAge(55)">Change Name</button>
-    <p>{{ jobs[0].location }}</p>
+    <JobsList :jobs="jobs"/>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, reactive, ref, toRefs } from "vue";
-import Job from "../types/job";
+import Job from "@/types/job";
+import JobsList from "./components/JobsList.vue";
 
 export default defineComponent({
   name: "App",
-  components: {},
+  components: {
+    JobsList,
+  },
   setup() {
-    // const state = reactive({
-    //   name: "",
-    //   age: 25 as number | string,
-    // });
-    // return { ...toRefs(state) };
-
-    // const name =  ref("Sandeep");// will return a ref value not the actual value
-    // const age = ref<number|string>(50);
-    // return {name, age}
 
     const jobs = ref<Job[]>([
       { title: "Farm worker", location: "aerdam", salary: 20400, id: "1" },
@@ -34,9 +25,8 @@ export default defineComponent({
       { title: "arm worker", location: "amerdam", salary: 2000045, id: "5" },
       { title: "rm worker", location: "terdam", salary: 200023460, id: "6" },
     ]);
-    return {jobs};
+    return { jobs };
   },
-  methods: {},
 });
 </script>
 
