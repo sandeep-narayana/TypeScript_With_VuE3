@@ -8,17 +8,21 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, toRefs } from "vue";
+import { defineComponent, reactive, ref, toRefs } from "vue";
 
 export default defineComponent({
   name: "App",
   components: {},
   setup() {
-    const state = reactive({
-      name: "",
-      age: 25 as number | string,
-    });
-    return { ...toRefs(state) };
+    // const state = reactive({
+    //   name: "",
+    //   age: 25 as number | string,
+    // });
+    // return { ...toRefs(state) };
+
+    const name =  ref("Sandeep");// will return a ref value not the actual value
+    const age = ref<number|string>(50);
+    return {name, age}
   },
   methods: {
     changeName(name: string) {
