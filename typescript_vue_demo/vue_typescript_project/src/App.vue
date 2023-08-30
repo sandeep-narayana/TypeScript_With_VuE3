@@ -15,18 +15,10 @@
     </header>
 
     <JobsList :jobs="jobs" :order="order" />
-
-    <!-- // ELEMNT UI  -->
-  <el-row class="mb-4">
-    <el-button>Default</el-button>
-    <el-button type="primary">Primary</el-button>
-    <el-button type="success">Success</el-button>
-    <el-button type="info">Info</el-button>
-    <el-button type="warning">Warning</el-button>
-    <el-button type="danger">Danger</el-button>
-  </el-row>
-
   </div>
+
+  <!-- State management -->
+  <First />
 </template>
 
 <script lang="ts">
@@ -34,11 +26,13 @@ import { defineComponent, reactive, ref, toRefs } from "vue";
 import Job from "@/types/job";
 import JobsList from "./components/JobsList.vue";
 import OrderTerm from "./types/OrderTerm";
+import First from "./components/vuex/First.vue";
 
 export default defineComponent({
   name: "App",
   components: {
     JobsList,
+    First,
   },
   setup() {
     const jobs = ref<Job[]>([
