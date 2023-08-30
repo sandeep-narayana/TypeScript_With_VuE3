@@ -5,8 +5,10 @@
     <!-- it is working fine -->
     <!-- it will be available to all the components -->
     <p>{{ $store.state.storeName }}</p>
+    <button v-on:click="newStoreName()">Change Store Name</button>
     <Child />
-  </div>s
+
+  </div>
 </template>
 
 <script>
@@ -16,5 +18,11 @@ export default {
   components: {
     Child,
   },
+  methods:{
+    newStoreName(){
+      // state is name of method otherwise it will not work , payload is the name you want to change into
+      this.$store.commit('setStoreName','NewStoreName');
+    }
+  }
 };
 </script>

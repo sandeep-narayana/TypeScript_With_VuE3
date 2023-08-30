@@ -5,5 +5,10 @@ export default createStore({
         storeName:'Name from store',
         storeMainTitle:'*****No Title****',
         
+    },
+    mutations:{
+        setStoreName(state,payload){
+            state.storeName = payload
+        }
     }
 })
