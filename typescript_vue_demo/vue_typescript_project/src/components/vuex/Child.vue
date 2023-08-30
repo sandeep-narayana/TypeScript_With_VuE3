@@ -18,6 +18,10 @@
     <button @click="changeNameM({ title: `change in storename using action` })">
       Change name using mapMutation
     </button>
+
+
+    <!-- use state from module -->
+    <p>{{ $store.state.admin.userName }} says hello from admin module</p>
   </div>
 </template>
 

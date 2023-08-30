@@ -1,5 +1,10 @@
 import {createStore} from "vuex"
 
+const adminModule ={
+    state:{
+      userName:"Sandeep"
+    }
+}
 export default createStore({
     state:{
         storeName:'Name from store',
@@ -26,5 +31,8 @@ export default createStore({
         hashNewAdd(state,getters){
             return state.storeMainTitle +'====>   ' + getters.hashAdd
         }
+    },
+    modules:{
+        admin:adminModule
     }
 })
