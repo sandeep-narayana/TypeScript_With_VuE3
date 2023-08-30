@@ -9,17 +9,22 @@
     <p>{{useNewGetter}} getter calling getter</p>
 
 <!-- showing state uisng mapState -->
-    {{xyz}} using mapState
+    {{xyz}} using mapState 
+    <p>{{key}} using mapGetter</p>
   </div>
 </template>
 
 <script>
-import {mapState} from "vuex"
+import {mapState,mapGetters} from "vuex"
 export default {
   name: "ChildComponent",
   computed:{
     ...mapState({
       xyz:(state)=>state.storeName
+    }),
+
+    ...mapGetters({
+      key:'hashAdd'
     }),
 
     useGetter(){
