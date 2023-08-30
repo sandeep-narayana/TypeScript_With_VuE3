@@ -14,6 +14,7 @@ export default createStore({
     },
     actions:{
         newTitle(context,payload){
+            console.log(payload)
             context.commit('setStoreName',payload)
         }
     },

@@ -11,11 +11,14 @@
 <!-- showing state uisng mapState -->
     {{xyz}} using mapState 
     <p>{{key}} using mapGetter</p>
+    <button @click="changeName({title:`change in storename using action`})">
+      Change name using mapAction
+    </button>
   </div>
 </template>
 
 <script>
-import {mapState,mapGetters} from "vuex"
+import {mapState,mapGetters, mapActions } from "vuex";
 export default {
   name: "ChildComponent",
   computed:{
@@ -31,8 +34,14 @@ export default {
       return this.$store.getters.hashAdd
     },
     // call another getter from one getter
-     useNewGetter(){
-      return this.$store.getters.hashNewAdd
+   useNewGetter(){
+      return this.$store.getters.hashNewAdd;
+    },
+  },
+  methods: {
+    ...mapActions(["newTitle"]),
+    changeName(payload) {
+      this.newTitle(payload);
     }
   }
 };
