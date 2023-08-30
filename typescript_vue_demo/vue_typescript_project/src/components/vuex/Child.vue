@@ -6,35 +6,39 @@
     <!-- getter -->
     <!-- useGetter will pring the written value -->
     <p>{{ useGetter }} from getters</p>
-    <p>{{useNewGetter}} getter calling getter</p>
+    <p>{{ useNewGetter }} getter calling getter</p>
 
-<!-- showing state uisng mapState -->
-    {{xyz}} using mapState 
-    <p>{{key}} using mapGetter</p>
-    <button @click="changeName({title:`change in storename using action`})">
+    <!-- showing state uisng mapState -->
+    {{ xyz }} using mapState
+    <p>{{ key }} using mapGetter</p>
+    <button @click="changeName({ title: `change in storename using action` })">
       Change name using mapAction
+    </button>
+
+    <button @click="changeNameM({ title: `change in storename using action` })">
+      Change name using mapMutation
     </button>
   </div>
 </template>
 
 <script>
-import {mapState,mapGetters, mapActions } from "vuex";
+import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
 export default {
   name: "ChildComponent",
-  computed:{
+  computed: {
     ...mapState({
-      xyz:(state)=>state.storeName
+      xyz: (state) => state.storeName,
     }),
 
     ...mapGetters({
-      key:'hashAdd'
+      key: "hashAdd",
     }),
 
-    useGetter(){
-      return this.$store.getters.hashAdd
+    useGetter() {
+      return this.$store.getters.hashAdd;
     },
     // call another getter from one getter
-   useNewGetter(){
+    useNewGetter() {
       return this.$store.getters.hashNewAdd;
     },
   },
@@ -42,7 +46,12 @@ export default {
     ...mapActions(["newTitle"]),
     changeName(payload) {
       this.newTitle(payload);
-    }
-  }
+    },
+
+    // upper vala ese nbhi ho sakta hai
+    ...mapMutations({
+      changeNameM: "setStoreName",
+    }),
+  },
 };
 </script>
