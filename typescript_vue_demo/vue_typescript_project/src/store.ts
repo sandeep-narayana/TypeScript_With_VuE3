@@ -8,7 +8,12 @@ export default createStore({
     },
     mutations:{
         setStoreName(state,payload){
-            state.storeName = payload
+            state.storeName = payload.title
+        }
+    },
+    actions:{
+        newTitle(context,payload){
+            context.commit('setStoreName',payload)
         }
     }
 })

@@ -24,7 +24,17 @@ export default {
       //this.$store.commit('setStoreName','NewStoreName');
 
       // changing directly without mutation
-      this.$store.state.storeName = "ABCDE"
+      //this.$store.state.storeName = "ABCDE"
+
+      //*********ACTION *******
+      //changing using action - here we will dispatch it to action and action will commit
+      this.$store.dispatch({
+        type:'newTitle',
+        title:"change in storename using action"
+      })
+
+
+
     }
   }
 };
