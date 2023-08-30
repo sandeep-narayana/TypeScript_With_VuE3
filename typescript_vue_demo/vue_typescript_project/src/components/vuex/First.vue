@@ -21,7 +21,10 @@ export default {
   methods:{
     newStoreName(){
       // state is name of method otherwise it will not work , payload is the name you want to change into
-      this.$store.commit('setStoreName','NewStoreName');
+      //this.$store.commit('setStoreName','NewStoreName');
+
+      // changing directly without mutation
+      this.$store.state.storeName = "ABCDE"
     }
   }
 };
