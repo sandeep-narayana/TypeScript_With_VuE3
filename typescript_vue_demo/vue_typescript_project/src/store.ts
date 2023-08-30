@@ -4,6 +4,7 @@ export default createStore({
     state:{
         storeName:'Name from store',
         storeMainTitle:'*****No Title****',
+        secreteKey :'9839'
         
     },
     mutations:{
@@ -14,6 +15,15 @@ export default createStore({
     actions:{
         newTitle(context,payload){
             context.commit('setStoreName',payload)
+        }
+    },
+    getters:{
+        hashAdd(state){
+            return state.secreteKey+'###############'
+        },
+
+        hashNewAdd(state,getters){
+            return state.storeMainTitle +'====>   ' + getters.hashAdd
         }
     }
 })
